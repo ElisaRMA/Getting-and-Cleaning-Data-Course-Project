@@ -87,7 +87,7 @@ tidy <- descriptive %>%
 
 #Save data 
 
-write.table(tidy, "tidydata.txt", row.name=FALSE) #saves the data
+write.table(tidymeans, "tidydata.txt", row.name=FALSE) #saves the data
 
 
 
