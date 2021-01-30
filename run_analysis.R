@@ -82,12 +82,14 @@ colnames(descriptive) <- tolower(names(descriptive)) # lowercase for column name
 
 tidy <- descriptive %>% 
         group_by(subjects, activitytype) %>%
-        summarise_each(funs(mean))
+        summarise_all(list(mean))
+
+tidy <- tidy[, c(3,2,1, 4:82)] # reorder the columns to look better
 
 
 #Save data 
 
-write.table(tidymeans, "tidydata.txt", row.name=FALSE) #saves the data
+write.table(tidy, "tidydata.txt", row.name=FALSE) #saves the data
 
 
 
