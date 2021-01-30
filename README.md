@@ -22,6 +22,8 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 # Code Book
 
+Code book with the explanations on each variable and column
+
 # Tidy data
 
 Output of the run_analysis.R script, after all instructions were followed.?The dataset contains the average of each variable for each activity and each subject.
