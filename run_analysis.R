@@ -79,16 +79,15 @@ colnames(descriptive) <- tolower(names(descriptive)) # lowercase for column name
 # From the data set in step 4, creates a second, independent tidy data set with the average
 # of each variable for each activity and each subject.
 
-x <- descriptive[2:82] #takes out the first column with the variable names(character) to be possible to calculate mean
 
-tidy <- aggregate(. ~subjects + activityid, x, mean) #calculates mean
-tidy <- merge(tidy, activityLabels, by = "activityid", all.x = TRUE) #puts the activity label again
-tidy <- select(tidy, last_col(), everything()) #moves the last column to the first position
-
+tidy <- descriptive %>% 
+        group_by(subjects, activitytype) %>%
+        summarise_each(funs(mean))
 
 
+#Save data 
 
-
+write.table(tidy, "tidydata.txt", row.name=FALSE) #saves the data
 
 
 
